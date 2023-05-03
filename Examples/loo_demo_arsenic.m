@@ -8,8 +8,10 @@
 %   Author: Aki Vehtari <Aki.Vehtari@aalto.fi>
 %   Last modified: 2015-07-16 15:19:17 EEST
 
-use MatlabProcessManager
-use MatlabStan
+% use MatlabProcessManager
+% use MatlabStan
+% import MatlabProcessManager
+% import MatlabStan
 
 %% Fit a model, using arsenic and distance as predictors
 

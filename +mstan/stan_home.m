@@ -5,5 +5,6 @@
 %  o some way to manage fileseparators?
 function d = stan_home()
 
-d = '/Users/brian.lau/Documents/Code/cmdstan-2.15.0';
+d='/home/will/anaconda3/envs/stan/bin/cmdstan';
+% d = '/Users/brian.lau/Documents/Code/cmdstan-2.15.0';
 %d = 'C:\Users\brian\Downloads\cmdstan';

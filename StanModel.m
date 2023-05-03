@@ -195,7 +195,8 @@ classdef StanModel < handle
          end
          
          if isempty(p.Results.stan_version)
-            self.stan_version = self.get_stan_version();
+             self.stan_version = [2 31 0];
+%             self.stan_version = self.get_stan_version();
          else
             self.stan_version = p.Results.stan_version;
          end

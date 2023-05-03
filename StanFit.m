@@ -117,7 +117,8 @@ classdef StanFit < handle
          end
       end
       
-      function check(self)
+      function done=status_check(self)
+         done=0;
          % Print status to screen for each running chain.
          if ~isempty(self.processes)
             if any([self.processes.running])
@@ -127,7 +128,26 @@ classdef StanFit < handle
                   end
                end
             else
-               fprintf('All Stan processes finished.\n');
+               done=1;
+%                fprintf('All Stan processes finished.\n');
+            end
+         else
+            fprintf('Nothing to check.\n');
+         end
+         
+      end
+
+      function check(self)
+         % Print status to screen for each running chain.
+         if ~isempty(self.processes)
+            if any([self.processes.running])
+%                for i = 1:numel(self.processes)
+%                   if self.processes(i).running
+%                      fprintf('%s \t %s\n',self.processes(i).id,self.processes(i).stdout{end});
+%                   end
+%                end
+            else
+%                fprintf('All Stan processes finished.\n');
             end
          else
             fprintf('Nothing to check.\n');
@@ -384,10 +404,10 @@ classdef StanFit < handle
                % not finished, but peek has been called for partial samples
             elseif is_running(self) && all(isnan(self.pos_)) % not finished
                self.check();
-               fprintf('\nStan is still working. You can either:\n');
-               fprintf('  1) Use the peek method to get partial samples\n');
-               fprintf('  2) Come back later, or\n');
-               fprintf('  3) Attach a listener to the StanFit object.\n');
+%                fprintf('\nStan is still working. You can either:\n');
+%                fprintf('  1) Use the peek method to get partial samples\n');
+%                fprintf('  2) Come back later, or\n');
+%                fprintf('  3) Attach a listener to the StanFit object.\n');
             elseif all((self.exit_value == 0) | (self.exit_value == 143)) % finished cleanly
                % TODO: check that SIGTERM (143) is the same on windows/linux?
                bool = true;
